@@ -1,0 +1,49 @@
+﻿
+@model USERPAGE.Models.Entity.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Home/Index.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name = "viewport" content="width=device.width" />
+    <title>Login</title>
+</head>
+<body>
+    <div id="USERPAGE-div">
+        @using (Html.BeginForm(FormMethod.Post))
+            {
+                <table>
+                    <tr>
+                        <td></td>
+                        <td style="text-decoration:underline">KULLANICI GİRİŞİ</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.UserName)
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.UserName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(model => model.Password)</td>
+                        <td>@Html.EditorFor(model => model.Password)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" name="name" value="Giriş Yap" />
+                        </td>
+                    </tr>
+                </table>
+            }
+    </div>
+</body>
+</html>
+
+<h2>Index</h2>
+

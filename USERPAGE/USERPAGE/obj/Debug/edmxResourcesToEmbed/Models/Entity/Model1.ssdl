@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASP.NetCoreExamModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CorrectAnswers">
+    <Key>
+      <PropertyRef Name="CorrectId" />
+    </Key>
+    <Property Name="CorrectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Correct" Type="varchar" MaxLength="50" />
+    <Property Name="OptionId" Type="int" />
+  </EntityType>
+  <EntityType Name="EFMigrationsHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductVersion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Exam">
+    <Key>
+      <PropertyRef Name="ExamId" />
+    </Key>
+    <Property Name="ExamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Content" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Option">
+    <Key>
+      <PropertyRef Name="OptionId" />
+    </Key>
+    <Property Name="OptionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OptionName" Type="varchar" MaxLength="50" />
+    <Property Name="OptionContent" Type="varchar" MaxLength="50" />
+    <Property Name="CorrectOption" Type="int" />
+    <Property Name="QuestionId" Type="int" />
+  </EntityType>
+  <EntityType Name="Questions">
+    <Key>
+      <PropertyRef Name="QuestionId" />
+    </Key>
+    <Property Name="QuestionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuestionNumber" Type="int" />
+    <Property Name="QuestionContent" Type="varchar" MaxLength="50" />
+    <Property Name="ExamId" Type="int" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="ASPNetCoreExamModelStoreContainer">
+    <EntitySet Name="CorrectAnswers" EntityType="Self.CorrectAnswers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EFMigrationsHistory" EntityType="Self.EFMigrationsHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Option" EntityType="Self.Option" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
